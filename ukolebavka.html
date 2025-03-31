@@ -4,20 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ukolebavka</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+        svg {
+            width: 100vw;
+            height: 100vh;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <audio id="lullaby" autoplay loop>
+    <audio id="lullaby" loop>
         <source src="deck-the-halls-background-christmas-music-for-video-calesta-version-253224.mp3" type="audio/mpeg">
         Váš prohlížeč nepodporuje přehrávání zvuku.
     </audio>
 
+    <svg onclick="playAudio()" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="100" fill="red"/>
+        <text x="50%" y="50%" font-size="20" text-anchor="middle" fill="white" dominant-baseline="middle">Zmáčkni mě</text>
+    </svg>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        function playAudio() {
             let audio = document.getElementById('lullaby');
+            audio.volume = 1.5;
             audio.play().catch(error => {
                 console.log("Automatické přehrávání bylo blokováno prohlížečem.", error);
             });
-        });
+        }
     </script>
 </body>
 </html>
