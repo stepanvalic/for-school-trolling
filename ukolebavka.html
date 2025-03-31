@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ukolebavka</title>
+</head>
+<body>
+    <audio id="lullaby" autoplay loop>
+        <source src="ukolebavka.mp3" type="audio/mpeg">
+        Váš prohlížeč nepodporuje přehrávání zvuku.
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let audio = document.getElementById('lullaby');
+            audio.play().catch(error => {
+                console.log("Automatické přehrávání bylo blokováno prohlížečem.", error);
+            });
+        });
+    </script>
+</body>
+</html>
