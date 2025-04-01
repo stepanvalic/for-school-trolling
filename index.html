@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Fun | Vítejte</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        .sound-btn {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .sound-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        .neon-text {
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6;
+        }
+        .rounded-lg {
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-indigo-900 to-purple-900 min-h-screen text-white">
+    <div class="container mx-auto px-4 py-12">
+        <header class="text-center mb-16">
+            <h1 class="text-5xl md:text-6xl font-bold neon-text mb-2">Sound Fun</h1>
+            <p class="text-xl text-indigo-200">Interaktivní zvuková zábava</p>
+            <div class="w-32 h-1 bg-white mx-auto mt-6 rounded-full"></div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+            <div class="sound-card bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-moon text-3xl text-yellow-300 mr-4"></i>
+                    <h2 class="text-2xl font-bold">Ukolébavka</h2>
+                </div>
+                <p class="text-gray-300 mb-6">Uklidňující zvuky pro relaxaci nebo možná i trochu škádlení kamarádů.</p>
+                <a href="https://stepanvalic.github.io/for-school-trolling/ukolebavka.html" 
+                   class="sound-btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full inline-flex items-center">
+                    <i class="fas fa-play mr-2"></i> Přehrát ukolébavku
+                </a>
+            </div>
+
+            <div class="sound-card bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-bolt text-3xl text-yellow-400 mr-4"></i>
+                    <h2 class="text-2xl font-bold">JOOOO!</h2>
+                </div>
+                <p class="text-gray-300 mb-6">Energické překvapení, které určitě upoutá pozornost všech okolo.</p>
+                <a href="https://stepanvalic.github.io/for-school-trolling/joooo.html" 
+                   class="sound-btn bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full inline-flex items-center">
+                    <i class="fas fa-play mr-2"></i> Přehrát JOOOO!
+                </a>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <div class="inline-block pulse-animation cursor-pointer" onclick="playRandomSound()">
+                <div class="bg-pink-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto">
+                    <i class="fas fa-random"></i>
+                </div>
+                <p class="mt-2 text-sm">Zkus náhodně</p>
+            </div>
+        </div>
+
+        <footer class="mt-16 text-center text-gray-400 text-sm">
+            <p>Vytvořeno pro zábavu a školní žertování</p>
+            <p class="mt-1">Autor: stepan_valic</p>
+        </footer>
+    </div>
+
+    <script>
+        function playRandomSound() {
+            const sounds = [
+                'https://stepanvalic.github.io/for-school-trolling/ukolebavka.html',
+                'https://stepanvalic.github.io/for-school-trolling/joooo.html'
+            ];
+            const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
+            window.location.href = randomSound;
+        }
+
+        document.querySelectorAll('.sound-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.classList.add('animate-bounce');
+            });
+            btn.addEventListener('mouseleave', () => {
+                setTimeout(() => {
+                    btn.classList.remove('animate-bounce');
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
