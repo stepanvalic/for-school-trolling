@@ -7,3 +7,4 @@ RewriteRule ^(.*)$ $1.html [L]
 
 RewriteRule ^ukolebavka$ ukolebavka.html [L]
 RewriteRule ^joooo$ joooo.html [L]
+RewriteRule ^jump$ jump.html [L]
