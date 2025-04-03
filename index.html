@@ -39,14 +39,14 @@
             <div class="w-32 h-1 bg-white mx-auto mt-6 rounded-full"></div>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
             <div class="sound-card bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6">
                 <div class="flex items-center mb-4">
                     <i class="fas fa-moon text-3xl text-yellow-300 mr-4"></i>
                     <h2 class="text-2xl font-bold">Ukolébavka</h2>
                 </div>
                 <p class="text-gray-300 mb-6">Uklidňující zvuky pro relaxaci nebo možná i trochu škádlení kamarádů.</p>
-                <a href="https://stepanvalic.github.io/for-school-trolling/ukolebavka" 
+                <a href="https://sounds.valic.fun/ukolebavka" 
                    class="sound-btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full inline-flex items-center">
                     <i class="fas fa-play mr-2"></i> Přehrát ukolébavku
                 </a>
@@ -58,12 +58,48 @@
                     <h2 class="text-2xl font-bold">JOOOO!</h2>
                 </div>
                 <p class="text-gray-300 mb-6">Energické překvapení, které určitě upoutá pozornost všech okolo.</p>
-                <a href="https://stepanvalic.github.io/for-school-trolling/joooo" 
+                <a href="https://sounds.valic.fun/joooo" 
                    class="sound-btn bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full inline-flex items-center">
                     <i class="fas fa-play mr-2"></i> Přehrát JOOOO!
                 </a>
             </div>
-        </div>
+
+            <div class="sound-card bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-arrow-up text-3xl text-green-400 mr-4"></i>
+                    <h2 class="text-2xl font-bold">Jump</h2>
+                </div>
+                <p class="text-gray-300 mb-6">Skákací zvuk pro rychlou akci nebo překvapení.</p>
+                <a href="https://sounds.valic.fun/jump" 
+                   class="sound-btn bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full inline-flex items-center">
+                    <i class="fas fa-play mr-2"></i> Přehrát Jump
+                </a>
+            </div>
+
+            <!-- <div class="sound-card bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-bell text-3xl text-purple-400 mr-4"></i>
+                    <h2 class="text-2xl font-bold">Ding</h2>
+                </div>
+                <p class="text-gray-300 mb-6">Krátký zvuk zvonku pro upozornění nebo zábavu.</p>
+                <a href="https://sounds.valic.fun/ding" 
+                   class="sound-btn bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full inline-flex items-center">
+                    <i class="fas fa-play mr-2"></i> Přehrát Ding
+                </a>
+            </div>
+
+            <div class="sound-card bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-star text-3xl text-orange-400 mr-4"></i>
+                    <h2 class="text-2xl font-bold">Sparkle</h2>
+                </div>
+                <p class="text-gray-300 mb-6">Jiskřivý zvuk pro kouzla nebo oslavy.</p>
+                <a href="https://sounds.valic.fun/sparkle" 
+                   class="sound-btn bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-full inline-flex items-center">
+                    <i class="fas fa-play mr-2"></i> Přehrát Sparkle
+                </a>
+            </div>
+        </div> -->
 
         <div class="text-center">
             <div class="inline-block pulse-animation cursor-pointer" onclick="playRandomSound()">
@@ -83,8 +119,9 @@
     <script>
         function playRandomSound() {
             const sounds = [
-                'https://stepanvalic.github.io/for-school-trolling/ukolebavka,
-                'https://stepanvalic.github.io/for-school-trolling/joooo'
+                'https://sounds.valic.fun/ukolebavka',
+                'https://sounds.valic.fun/joooo',
+                'https://sounds.valic.fun/jump'
             ];
             const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
             window.location.href = randomSound;
