@@ -76,19 +76,19 @@
                 </a>
             </div>
 
-            <!-- <div class="sound-card bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6">
+            <div class="sound-card bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6">
                 <div class="flex items-center mb-4">
                     <i class="fas fa-bell text-3xl text-purple-400 mr-4"></i>
-                    <h2 class="text-2xl font-bold">Ding</h2>
+                    <h2 class="text-2xl font-bold">Goofy</h2>
                 </div>
                 <p class="text-gray-300 mb-6">Krátký zvuk zvonku pro upozornění nebo zábavu.</p>
                 <a href="https://sounds.valic.fun/ding" 
                    class="sound-btn bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full inline-flex items-center">
-                    <i class="fas fa-play mr-2"></i> Přehrát Ding
+                    <i class="fas fa-play mr-2"></i> Goofy
                 </a>
             </div>
 
-            <div class="sound-card bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6">
+            <!-- <div class="sound-card bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-6">
                 <div class="flex items-center mb-4">
                     <i class="fas fa-star text-3xl text-orange-400 mr-4"></i>
                     <h2 class="text-2xl font-bold">Sparkle</h2>
@@ -98,8 +98,8 @@
                    class="sound-btn bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-full inline-flex items-center">
                     <i class="fas fa-play mr-2"></i> Přehrát Sparkle
                 </a>
-            </div>
-        </div> -->
+            </div> -->
+        </div>
 
         <div class="text-center">
             <div class="inline-block pulse-animation cursor-pointer" onclick="playRandomSound()">
@@ -121,7 +121,8 @@
             const sounds = [
                 'https://sounds.valic.fun/ukolebavka',
                 'https://sounds.valic.fun/joooo',
-                'https://sounds.valic.fun/jump'
+                'https://sounds.valic.fun/jump',
+                'https://sounds.valic.fun/goofy'
             ];
             const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
             window.location.href = randomSound;
