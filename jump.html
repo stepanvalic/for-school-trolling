@@ -1,32 +1,79 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAZDAR!</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Surprise!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        #jumpscareImg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 10;
+        }
+        
+        /* Přidána animace pulzování */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 0.5s infinite;
+        }
+    </style>
 </head>
-<body class="bg-black flex items-center justify-center h-screen">
-    <div id="container" class="fixed inset-0 flex items-center justify-center bg-black hidden">
-        <img id="spooky" 
-             src="https://i.ytimg.com/vi/RNoHcWE8tbQ/maxresdefault.jpg" 
-             class="w-1/2 max-w-lg transition-transform duration-200 ease-in-out scale-100">
-    </div>
-
-    <audio id="aids">
-        <source src="https://github.com/stepanvalic/for-school-trolling/raw/refs/heads/main/src/sounds/yeet.mp3" type="audio/mp3">
+<body>
+    <img id="jumpscareImg" src="https://i.ytimg.com/vi/RNoHcWE8tbQ/maxresdefault.jpg" alt="Jumpscare">
+    <audio id="jumpscareSound" loop>
+        <source src="https://github.com/stepanvalic/for-school-trolling/raw/refs/heads/main/src/sounds/yeet.mp3" type="audio/mpeg">
     </audio>
 
     <script>
-        $(document).ready(function() {
-            setTimeout(() => {
-                $('#container').removeClass('hidden').find('#spooky').addClass('scale-110');
-                let audio = $('#aids')[0];
-                audio.play().catch(error => console.log("Problém s automatickým přehráním zvuku:", error));
-            }, 1000);
-        });
+        // Elementy
+        const jumpscareImg = document.getElementById('jumpscareImg');
+        const jumpscareSound = document.getElementById('jumpscareSound');
+        
+        // Funkce pro spuštění jumpscare
+        function triggerJumpscare() {
+            // Přidání pulzující animace
+            jumpscareImg.classList.add('pulse');
+            
+            // Pokus o přehrání zvuku
+            jumpscareSound.play().catch(error => {
+                console.error('Audio playback failed:', error);
+                // V případě chyby přidáme listener pro první interakci se stránkou
+                document.addEventListener('click', function() {
+                    jumpscareSound.play();
+                }, { once: true });
+                
+                document.addEventListener('touchstart', function() {
+                    jumpscareSound.play();
+                }, { once: true });
+            });
+        }
+        
+        // Spustíme jumpscare ihned po načtení stránky
+        window.addEventListener('load', triggerJumpscare);
+        
+        // Předběžné načtení obrázku
+        const preloadImg = new Image();
+        preloadImg.src = 'https://i.ytimg.com/vi/RNoHcWE8tbQ/maxresdefault.jpg';
     </script>
-
 </body>
 </html>
